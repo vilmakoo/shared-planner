@@ -1,15 +1,21 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View, Alert, Button } from 'react-native'
 
 export default class App extends React.Component {
   render() {
+    console.log('moii')
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Text>Hello world!</Text>
+        <Text>äää</Text>
+        <Button onPress={() => {
+          Alert.alert('You tapped the button!')
+        }}
+          title="Tap me"
+          color='green'
+        />
       </View>
-    );
+    )
   }
 }
 
@@ -20,4 +26,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
