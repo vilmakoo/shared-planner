@@ -1,29 +1,13 @@
 import React from 'react'
 import { StyleSheet, Text, View, Alert, Button } from 'react-native'
+import { StackNavigator } from 'react-navigation'
 
-export default class App extends React.Component {
-  render() {
-    console.log('moii')
-    return (
-      <View style={styles.container}>
-        <Text>Hello world!</Text>
-        <Text>äää</Text>
-        <Button onPress={() => {
-          Alert.alert('You tapped the button!')
-        }}
-          title="Tap me"
-          color='green'
-        />
-      </View>
-    )
-  }
-}
+import Calendar from './components/Calendar'
+import HomeScreen from './components/HomeScreen'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const App = StackNavigator({
+  Home: { screen: HomeScreen },
+  Calendar: { screen: Calendar }
 })
+
+export default App
