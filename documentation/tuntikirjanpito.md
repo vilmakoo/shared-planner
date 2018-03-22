@@ -5,5 +5,6 @@ Päivä | Tuntimäärä | Mitä tein
 14.3. | 2 | Alustavan kalenterinäkymän luominen, navigointimahdollisuus kahden näkymän välille
 20.3. | 2 | Backendin alustus. Yritin myös onnistua datan hakemisessa sieltä
 21.3. | 2 | Bugien korjailua. Datan haku backendiltä toimii nyt.
+22.3. | 2 | Koodin refaktorointia. Redux otettu käyttöön.
  | | 
- **Yht** | 9 | 
+ **Yht** | 11 | 

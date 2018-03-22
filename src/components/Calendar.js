@@ -1,17 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Table, Row, Rows } from 'react-native-table-component'
+import { connect } from 'react-redux'
 
 import Day from './Day'
 
 class Calendar extends React.Component {
   componentWillMount() {
-    this.days = this.props.navigation.state.params.state
     this.dates = [
-      [this.days.mondays[0], this.days.tuesdays[0], this.days.wednesdays[0], this.days.thursdays[0], this.days.fridays[0], this.days.saturdays[0], this.days.sundays[0]],
-      [this.days.mondays[1], this.days.tuesdays[1], this.days.wednesdays[1], this.days.thursdays[1], this.days.fridays[1], this.days.saturdays[1], this.days.sundays[1]],
-      [this.days.mondays[2], this.days.tuesdays[2], this.days.wednesdays[2], this.days.thursdays[2], this.days.fridays[2], this.days.saturdays[2], this.days.sundays[2]],
-      [this.days.mondays[3], this.days.tuesdays[3], this.days.wednesdays[3], this.days.thursdays[3], this.days.fridays[3], this.days.saturdays[3], this.days.sundays[3]],
+      [this.props.mondays[0], this.props.tuesdays[0], this.props.wednesdays[0], this.props.thursdays[0], this.props.fridays[0], this.props.saturdays[0], this.props.sundays[0]],
+      [this.props.mondays[1], this.props.tuesdays[1], this.props.wednesdays[1], this.props.thursdays[1], this.props.fridays[1], this.props.saturdays[1], this.props.sundays[1]],
+      [this.props.mondays[2], this.props.tuesdays[2], this.props.wednesdays[2], this.props.thursdays[2], this.props.fridays[2], this.props.saturdays[2], this.props.sundays[2]],
+      [this.props.mondays[3], this.props.tuesdays[3], this.props.wednesdays[3], this.props.thursdays[3], this.props.fridays[3], this.props.saturdays[3], this.props.sundays[3]],
       // [this.days.mondays[4], this.days.tuesdays[4], this.days.wednesdays[0], this.days.thursdays[0], this.days.fridays[0], this.days.saturdays[0], this.days.sundays[0]],
     ]
   }
@@ -27,7 +27,6 @@ class Calendar extends React.Component {
   ]
 
   render() {
-    console.log(this.props.navigation.state.params.state)
     return (
       <View style={styles.container} >
         <Text>Calendar</Text>
@@ -54,4 +53,21 @@ const styles = StyleSheet.create({
   row: { height: 30 }
 })
 
-export default Calendar
+const mapStateToProps = (state) => {
+  return {
+    days: state.days,
+    mondays: state.mondays,
+    tuesdays: state.tuesdays,
+    wednesdays: state.wednesdays,
+    thursdays: state.thursdays,
+    fridays: state.fridays,
+    saturdays: state.saturdays,
+    sundays: state.sundays
+  }
+}
+
+const ConnectedCalendar = connect(
+  mapStateToProps
+)(Calendar)
+
+export default ConnectedCalendar
